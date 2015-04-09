@@ -10,15 +10,16 @@ for testing and development.
 1. Clone this repo
 2. Clone the Puppet control repo into `puppet-control/<environment>/` (development by default)
 3. Clone any Puppet modules you want to develop into `puppet-modules/`
-4. Run `vagrant up` to start the VM
-5. Run `vagrant ssh` to access the VM
-6. Optional: define a role for your node by editing `/etc/facter/facts.d/role.txt`
-6. Run `sudo puppet agent --test` to apply the Puppet config
-7. Make any changes to the Puppet control repo and/or Puppet modules
-8. Run `sudo puppet agent --test` to apply the updated config
-9. Repeat steps 7 and 8 until you are satisfied with your changes
-10. Commit any changes you made to the Puppet control repo and/or Puppet modules
-11. Run `vagrant halt` to shut down the Puppet Master
+4. Make sure the `puppet_environment` fact in the Vagrantfile matches the name of your environment
+5. Run `vagrant up` to start the VM
+6. Run `vagrant ssh` to access the VM
+7. Optional: assign a role to your node by editing `/etc/facter/facts.d/role.txt`
+8. Run `sudo puppet agent --test` to apply the Puppet config
+9. Make any changes to the Puppet control repo and/or Puppet modules
+10. Run `sudo puppet agent --test` to apply the updated config
+11. Repeat steps 9 and 10 until you are satisfied with your changes
+12. Commit any changes you made to the Puppet control repo and/or Puppet modules
+13. Run `vagrant halt` to shut down the Puppet Master
 
 
 ## VirtualBox Snapshots
