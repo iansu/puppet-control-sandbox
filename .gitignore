@@ -1,0 +1,5 @@
+.vagrant/
+puppet-control/*
+!puppet-control/README.md
+puppet-modules/*
+!puppet-modules/README.md
