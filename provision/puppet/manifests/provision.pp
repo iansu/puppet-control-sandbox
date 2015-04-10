@@ -17,6 +17,10 @@ class provision::install_packages {
 
 # Configure Puppet Master and Agent
 class provision::configure_puppet {
+  file { '/etc/puppet/puppet.conf':
+    ensure => 'present'
+  }
+
   Ini_setting {
     ensure => present,
     path => "${::settings::confdir}/puppet.conf"
@@ -117,7 +121,8 @@ class provision::install_puppetfile_modules {
 class provision::start_puppetmaster {
   service { 'puppetmaster':
     ensure => 'running',
-    enable => true
+    enable => true,
+    subscribe => File['/etc/puppet/puppet.conf', '/etc/puppet/hiera.yaml']
   }
 }
 
